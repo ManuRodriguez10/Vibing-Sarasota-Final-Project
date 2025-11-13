@@ -150,7 +150,7 @@ export default function Layout({ children }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span>(941) 555-0123</span>
+                  <span>(941) 123-4567</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />

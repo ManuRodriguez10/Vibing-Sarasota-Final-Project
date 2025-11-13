@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { useNavigate } from "react-router-dom";
+import { SuggestedBusiness } from "@/api/entities";
 import { useMutation } from "@tanstack/react-query";
 import { Lightbulb, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ import {
 import { Card } from "@/components/ui/card";
 
 export default function SuggestBusiness() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,7 +27,7 @@ export default function SuggestBusiness() {
   const [submitted, setSubmitted] = useState(false);
 
   const submitMutation = useMutation({
-    mutationFn: (data) => base44.entities.SuggestedBusiness.create(data),
+    mutationFn: (data) => SuggestedBusiness.create(data),
     onSuccess: () => {
       setSubmitted(true);
       setFormData({
@@ -66,10 +68,10 @@ export default function SuggestBusiness() {
             Your suggestion has been submitted successfully. We'll review it and add it to our listings soon!
           </p>
           <Button
-            onClick={() => setSubmitted(false)}
+            onClick={() => navigate("/")}
             className="bg-[var(--ocean-blue)] hover:bg-[var(--deep-navy)] text-white"
           >
-            Submit Another
+            Back to Home
           </Button>
         </Card>
       </div>

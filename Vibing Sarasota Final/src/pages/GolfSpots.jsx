@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { Business } from "@/api/entities";
 import { useQuery } from "@tanstack/react-query";
 import { Flag, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,7 @@ export default function GolfSpots() {
 
   const { data: businesses = [], isLoading } = useQuery({
     queryKey: ["businesses", "Golf Spots"],
-    queryFn: () => base44.entities.Business.filter({ category: "Golf Spots" }),
+    queryFn: () => Business.filter({ category: "Golf Spots" }),
   });
 
   const filteredBusinesses = businesses.filter((business) =>

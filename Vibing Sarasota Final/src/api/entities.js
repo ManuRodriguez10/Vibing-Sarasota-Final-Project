@@ -1,11 +1,12 @@
-import { base44 } from './base44Client';
+import { businessService, suggestedBusinessService } from './businessService';
 
+// Custom business entity service
+export const Business = {
+  filter: (filters) => businessService.filter(filters),
+  getById: (id) => businessService.getById(id),
+};
 
-export const Business = base44.entities.Business;
-
-export const SuggestedBusiness = base44.entities.SuggestedBusiness;
-
-
-
-// auth sdk:
-export const User = base44.auth;
+// Custom suggested business service
+export const SuggestedBusiness = {
+  create: (data) => suggestedBusinessService.create(data),
+};

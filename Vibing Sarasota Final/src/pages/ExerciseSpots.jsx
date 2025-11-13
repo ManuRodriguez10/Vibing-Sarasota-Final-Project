@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { base44 } from "@/api/base44Client";
+import { Business } from "@/api/entities";
 import { useQuery } from "@tanstack/react-query";
 import { Dumbbell, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,7 @@ export default function ExerciseSpots() {
 
   const { data: businesses = [], isLoading } = useQuery({
     queryKey: ["businesses", "Exercise Spots"],
-    queryFn: () => base44.entities.Business.filter({ category: "Exercise Spots" }),
+    queryFn: () => Business.filter({ category: "Exercise Spots" }),
   });
 
   const filteredBusinesses = businesses.filter((business) =>
