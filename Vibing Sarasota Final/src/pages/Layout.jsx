@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, MapPin, Phone, Mail, Lightbulb } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail, Lightbulb, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Layout({ children }) {
@@ -69,6 +69,17 @@ export default function Layout({ children }) {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                to={createPageUrl("Login")}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  isActive(createPageUrl("Login"))
+                    ? "bg-[var(--ocean-blue)] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                <LogIn className="w-4 h-4 inline mr-1" />
+                Login
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -108,6 +119,18 @@ export default function Layout({ children }) {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                to={createPageUrl("Login")}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg font-medium transition-all ${
+                  isActive(createPageUrl("Login"))
+                    ? "bg-[var(--ocean-blue)] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                <LogIn className="w-4 h-4 inline mr-1" />
+                Login
+              </Link>
             </div>
           </div>
         )}

@@ -16,6 +16,8 @@ import GolfSpots from "./GolfSpots";
 
 import SuggestBusiness from "./SuggestBusiness";
 
+import Login from "./Login";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
@@ -35,6 +37,8 @@ const PAGES = {
     GolfSpots: GolfSpots,
     
     SuggestBusiness: SuggestBusiness,
+    
+    Login: Login,
     
 }
 
@@ -78,6 +82,8 @@ function PagesContent() {
                 <Route path="/GolfSpots" element={<GolfSpots />} />
                 
                 <Route path="/SuggestBusiness" element={<SuggestBusiness />} />
+                
+                <Route path="/Login" element={<Login />} />
                 
             </Routes>
         </Layout>
